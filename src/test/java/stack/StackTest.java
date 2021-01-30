@@ -26,7 +26,7 @@ public class StackTest {
     }
 
     @Test
-    public void popAndPop() {
+    public void popAndPeek() {
         stack.push(11);
         stack.push(21);
         stack.push(31);

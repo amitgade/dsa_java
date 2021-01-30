@@ -14,8 +14,12 @@ public class Stack {
         }
     }
     private int size;
-
     private Node head;
+
+    public boolean isEmpty() {
+        return getSize() == 0;
+    }
+
     public void push(int data) {
         Node newNode = new Node(data);
         if (head != null) {

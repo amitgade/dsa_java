@@ -13,16 +13,10 @@ public class Stack {
             this.data = data;
         }
     }
-
     private int size;
-    private Node head;
 
+    private Node head;
     public void push(int data) {
-//        if (head == null) {
-//            head = newNode;
-//            size++;
-//            return;
-//        }
         Node newNode = new Node(data);
         if (head != null) {
             newNode.next = head;
@@ -39,6 +33,10 @@ public class Stack {
         head = head.next;
         size--;
         return data;
+    }
+
+    public int getSize() {
+        return size;
     }
 
     public int peek() {

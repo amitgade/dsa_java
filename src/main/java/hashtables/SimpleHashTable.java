@@ -31,7 +31,7 @@ public class SimpleHashTable {
         return hashTable[hashedKey];
     }
 
-    public void printHasTable() {
+    public void printHashTable() {
         for (int i = 0; i < hashTable.length; i++) {
             System.out.println(hashTable[i]);
         }

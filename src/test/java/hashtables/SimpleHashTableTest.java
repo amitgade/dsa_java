@@ -5,18 +5,16 @@ import org.junit.Before;
 import org.junit.Test;
 import pojos.Employee;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by amitgade on 01-Feb-2021
  */
 public class SimpleHashTableTest {
 
-    SimpleHashTable simpleHashTable;
+    SimpleHashTable hashTable;
 
     @Before
     public void setUp() throws Exception {
-        simpleHashTable = new SimpleHashTable();
+        hashTable = new SimpleHashTable();
     }
 
     @Test
@@ -27,15 +25,15 @@ public class SimpleHashTableTest {
         Employee ganpatgawde = new Employee("Ganpat", "Gawde", 14437);
         Employee dadakondke = new Employee("Dada", "Kondke", 11231);
 
-        simpleHashTable.put("Jones", samjones);
-        simpleHashTable.put("Jill", jackjill);
-        simpleHashTable.put("Kondke",dadakondke);
+        hashTable.put("Jones", samjones);
+        hashTable.put("Jill", jackjill);
+        hashTable.put("Kondke",dadakondke);
 //        simpleHashTable.put("Gawde", ganpatgawde); // this will cause collision
 
-        Assert.assertEquals(samjones, simpleHashTable.get("Jones"));
-        Assert.assertEquals(jackjill, simpleHashTable.get("Jill"));
-        Assert.assertEquals(dadakondke, simpleHashTable.get("Kondke"));
+        Assert.assertEquals(samjones, hashTable.get("Jones"));
+        Assert.assertEquals(jackjill, hashTable.get("Jill"));
+        Assert.assertEquals(dadakondke, hashTable.get("Kondke"));
 
-        simpleHashTable.printHasTable();
+//        hashTable.printHashTable();
     }
 }

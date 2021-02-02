@@ -93,6 +93,15 @@ public class ChainedHashTable {
             this.value = value;
             this.next = null;
         }
+
+        @Override
+        public String toString() {
+            return "HashEntry{" +
+                    "key='" + key + '\'' +
+                    ", value='" + value + '\'' +
+                    ", next=" + next +
+                    '}';
+        }
     }
 
     private static final int INITIAL_SIZE = 16;
@@ -130,6 +139,10 @@ public class ChainedHashTable {
         // convert to index
         int index = (hashCode & 0x7fffffff) % INITIAL_SIZE;
 
+        // Hack to force collision for testing
+        if (key.equals("John") || key.equals("Henry") || key.equals("Shiv")) {
+            index = 4;
+        }
         return index;
     }
 
@@ -148,6 +161,10 @@ public class ChainedHashTable {
             currentEntry = currentEntry.next;   // else go to next node in chain
         }
         return null;                            // return null if no match found
+    }
+
+    public String remove(String key) {
+        return "";
     }
 
     @Override

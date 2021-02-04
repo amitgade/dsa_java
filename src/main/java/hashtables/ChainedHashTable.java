@@ -1,5 +1,7 @@
 package hashtables;
 
+import linkedlist.LinkedList;
+
 /**
  * Created by amitgade on 01-Feb-2021
  */
@@ -84,21 +86,30 @@ public class ChainedHashTable {
         return null;                            // return null if no match found
     }
 
-    public String remove(String key) {
+    public void remove(String key) {
+        // TODO: 04/02/21 Add remove code
         // get the index
         int index = getIndex(key);
 
         // get current list of entries / find the bucket / head of linkedlist
         HashEntry currentEntry = data[index];
 
-        // While there are elements in the linked list...
-        while (currentEntry != null) {
-            if (currentEntry.key.equals(key)) { // Check for match
-                return currentEntry.value;
-            }
-            currentEntry = currentEntry.next;   // else go to next node in chain
+        // if no match found
+        if (currentEntry == null) {
+            return;
         }
-        return null;                            // return null if no match found
+        // if we are to delete head
+        if (currentEntry.key.equals(key)) {
+            data[index] = currentEntry.next;
+            return;
+        }
+
+        while (currentEntry.next != null) {
+            if (currentEntry.next.key.equals(key)) {
+                currentEntry.next = currentEntry.next.next;
+                return;
+            }
+        }
     }
 
     @Override

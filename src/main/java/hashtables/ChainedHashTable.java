@@ -20,10 +20,8 @@ public class ChainedHashTable {
         @Override
         public String toString() {
             return "HashEntry{" +
-                    "key='" + key + '\'' +
-                    ", value='" + value + '\'' +
-                    ", next=" + next +
-                    '}';
+                    "key='" + key +
+                    "'" + '}';
         }
     }
 
@@ -63,8 +61,8 @@ public class ChainedHashTable {
         int index = (hashCode & 0x7fffffff) % INITIAL_SIZE;
 
         // Hack to force collision for testing
-        if (key.equals("John") || key.equals("Henry") || key.equals("Shiv")) {
-            index = 4;
+        if (key.equals("John") || key.equals("Shiv")) {
+            index = 1;
         }
         return index;
     }
@@ -117,7 +115,7 @@ public class ChainedHashTable {
         int bucket = 0;
         StringBuilder hashTableStr = new StringBuilder();
         for (HashEntry entry : data) {
-            if(entry == null) {
+            if (entry == null) {
                 continue;
             }
             hashTableStr.append("\n bucket[")
@@ -126,7 +124,7 @@ public class ChainedHashTable {
                     .append(entry.toString());
             bucket++;
             HashEntry temp = entry.next;
-            while(temp != null) {
+            while (temp != null) {
                 hashTableStr.append(" -> ");
                 hashTableStr.append(temp.toString());
                 temp = temp.next;

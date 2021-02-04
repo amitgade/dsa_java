@@ -38,10 +38,13 @@ public class ChainedHashTableTest {
         hashTable.put("John", "Doe");
         hashTable.put("Jack", "Sparrow");
         hashTable.put("Nikola","Tesla");
-        hashTable.put("Henry", "Ford"); // this will cause collision
+        hashTable.put("Henry", "Ford");
         hashTable.put("Shiv", "Khera"); // this will cause collision
+        System.out.println(hashTable);
+        System.out.println("-------------");
+        hashTable.remove("John");
 
-        assertEquals("John", hashTable.get("Doe"));
+        assertEquals(null, hashTable.get("John"));
 
         System.out.println(hashTable);
     }

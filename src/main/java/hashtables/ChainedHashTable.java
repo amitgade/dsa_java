@@ -1,7 +1,5 @@
 package hashtables;
 
-import linkedlist.LinkedList;
-
 /**
  * Created by amitgade on 01-Feb-2021
  */
@@ -62,7 +60,7 @@ public class ChainedHashTable {
 
         // Hack to force collision for testing
         if (key.equals("John") || key.equals("Shiv")) {
-            index = 1;
+            index = 7;
         }
         return index;
     }
@@ -84,9 +82,7 @@ public class ChainedHashTable {
         return null;                            // return null if no match found
     }
 
-    public void remove(String key) {
-        // TODO: 04/02/21 Add remove code
-        // get the index
+    public void remove(String key) {// get the index
         int index = getIndex(key);
 
         // get current list of entries / find the bucket / head of linkedlist
@@ -116,6 +112,7 @@ public class ChainedHashTable {
         StringBuilder hashTableStr = new StringBuilder();
         for (HashEntry entry : data) {
             if (entry == null) {
+                bucket++;
                 continue;
             }
             hashTableStr.append("\n bucket[")

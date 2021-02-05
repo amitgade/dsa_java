@@ -25,10 +25,11 @@ public class ChainedHashTableTest {
         hashTable.put("Henry", "Ford"); // this will cause collision
         hashTable.put("Shiv", "Khera"); // this will cause collision
 
-        assertEquals("John", hashTable.get("Doe"));
-        assertEquals("Jack", hashTable.get("Sparrow"));
-        assertEquals("Nikola", hashTable.get("Tesla"));
-        assertEquals("Henry", hashTable.get("Ford"));
+        assertEquals("Doe", hashTable.get("John"));
+        assertEquals("Sparrow", hashTable.get("Jack"));
+        assertEquals("Tesla", hashTable.get("Nikola"));
+        assertEquals("Ford", hashTable.get("Henry"));
+        assertEquals("Khera", hashTable.get("Shiv"));
 
         System.out.println(hashTable);
     }
@@ -41,11 +42,11 @@ public class ChainedHashTableTest {
         hashTable.put("Henry", "Ford");
         hashTable.put("Shiv", "Khera"); // this will cause collision
         System.out.println(hashTable);
-        System.out.println("-------------");
+
+        System.out.println("-------After Remove operation------");
+
         hashTable.remove("John");
-
         assertEquals(null, hashTable.get("John"));
-
         System.out.println(hashTable);
     }
 }

@@ -31,7 +31,7 @@ public class ChainedHashTableTest {
         assertEquals("Ford", hashTable.get("Henry"));
         assertEquals("Khera", hashTable.get("Shiv"));
 
-        System.out.println(hashTable);
+//        System.out.println(hashTable);
     }
 
     @Test
@@ -41,12 +41,12 @@ public class ChainedHashTableTest {
         hashTable.put("Nikola","Tesla");
         hashTable.put("Henry", "Ford");
         hashTable.put("Shiv", "Khera"); // this will cause collision
-        System.out.println(hashTable);
+//        System.out.println(hashTable);
 
-        System.out.println("-------After Remove operation------");
+//        System.out.println("-------After Remove operation------");
 
         hashTable.remove("John");
         assertEquals(null, hashTable.get("John"));
-        System.out.println(hashTable);
+//        System.out.println(hashTable);
     }
 }

@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import pojos.Employee;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * Created by amitgade on 01-Feb-2021
  */
@@ -19,21 +21,32 @@ public class SimpleHashTableTest {
 
     @Test
     public void putAndGet() {
-        Employee samjones = new Employee("Sam", "Jones", 12331);
-        Employee sampitroda = new Employee("Sam", "Pitroda", 12345);
-        Employee jackjill = new Employee("Jack", "Jill", 12311);
-        Employee ganpatgawde = new Employee("Ganpat", "Gawde", 14437);
-        Employee dadakondke = new Employee("Dada", "Kondke", 11231);
+        hashTable.put("John", "Doe");
+        hashTable.put("Jack", "Sparrow");
+        hashTable.put("Nikola","Tesla");
+        hashTable.put("Henry", "Ford"); // this will cause collision
+        hashTable.put("Shiv", "Khera"); // this will cause collision
 
-        hashTable.put("Jones", samjones);
-        hashTable.put("Jill", jackjill);
-        hashTable.put("Kondke",dadakondke);
-//        simpleHashTable.put("Gawde", ganpatgawde); // this will cause collision
+        assertEquals("Doe", hashTable.get("John"));
+        assertEquals("Sparrow", hashTable.get("Jack"));
+        assertEquals("Tesla", hashTable.get("Nikola"));
+        assertEquals("Ford", hashTable.get("Henry"));
+        assertEquals("Khera", hashTable.get("Shiv"));
 
-        Assert.assertEquals(samjones, hashTable.get("Jones"));
-        Assert.assertEquals(jackjill, hashTable.get("Jill"));
-        Assert.assertEquals(dadakondke, hashTable.get("Kondke"));
+//        System.out.println(hashTable);
+    }
 
-//        hashTable.printHashTable();
+    @Test
+    public void remove() {
+        hashTable.put("John", "Doe");
+        hashTable.put("Jack", "Sparrow");
+        hashTable.put("Nikola","Tesla");
+        hashTable.put("Henry", "Ford");
+        hashTable.put("Shiv", "Khera"); // this will cause collision
+
+        hashTable.remove("John");
+        assertEquals(null, hashTable.get("John"));
+
+//        System.out.println(hashTable);
     }
 }

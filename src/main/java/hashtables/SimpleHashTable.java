@@ -1,40 +1,87 @@
 package hashtables;
 
-import pojos.Employee;
+import java.util.Arrays;
 
 /**
  * Created by amitgade on 01-Feb-2021
  */
 public class SimpleHashTable {
-    private Employee[] hashTable;
+
+    private class HashEntry { // think of as a LinkedLis node
+        String key;
+        String value;
+
+        public HashEntry(String key, String value) {
+            this.key = key;
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return "HashEntry{" +
+                    "key='" + key + '\'' +
+                    ", value='" + value + '\'' +
+                    '}';
+        }
+    }
+
+    private static final int INITIAL_SIZE = 16;
+    private HashEntry[] data;
 
     public SimpleHashTable() {
-        hashTable = new Employee[10];
+        data = new HashEntry[INITIAL_SIZE];
     }
 
-    private int hashKey(String key) {
-        return key.length() % hashTable.length;
-    }
+    public void put(String key, String value) {
+        // get the index
+        int index = getIndex(key);
 
-    public void put(String key, Employee employee) {
-        // hash the key
-        int hashedKey = hashKey(key);
-        if (hashTable[hashedKey] != null) {
-            System.out.println("Sorry! There is already an employee at this place.");
-            return;
-        }
-        hashTable[hashedKey] = employee;
-    }
+        // create LinkedList entry
+        HashEntry entry = new HashEntry(key, value);
 
-    public Employee get(String key) {
-        int hashedKey = hashKey(key);
-        return hashTable[hashedKey];
-    }
-
-    public void printHashTable() {
-        for (int i = 0; i < hashTable.length; i++) {
-            System.out.println(hashTable[i]);
+        // if no entry.. add it means this is 1st node at particular index
+        if (data[index] == null) {
+            data[index] = entry;
+        } else {
+            // we found collision
+            System.out.println("Sorry, we found collision. Cannot add the element.");
         }
     }
 
+    public int getIndex(String key) {
+        // get the hashcode
+        int hashCode = key.hashCode();
+
+        // convert to index
+        int index = (hashCode & 0x7fffffff) % INITIAL_SIZE;
+
+        return index;
+    }
+
+    public String get(String key) {
+        // get the index
+        int index = getIndex(key);
+
+        // get entry
+        HashEntry entry = data[index];
+
+        if (entry != null && entry.key == key) {
+            return entry.value;
+        }
+        return null;
+    }
+
+    public void remove(String key) {
+        int index = getIndex(key);
+        if (data[index].key.equals(key)) {
+            data[index] = null;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "SimpleHashTable{" +
+                "data=" + Arrays.toString(data) +
+                "}";
+    }
 }

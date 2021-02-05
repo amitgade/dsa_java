@@ -41,9 +41,6 @@ public class ChainedHashTableTest {
         hashTable.put("Nikola","Tesla");
         hashTable.put("Henry", "Ford");
         hashTable.put("Shiv", "Khera"); // this will cause collision
-//        System.out.println(hashTable);
-
-//        System.out.println("-------After Remove operation------");
 
         hashTable.remove("John");
         assertEquals(null, hashTable.get("John"));

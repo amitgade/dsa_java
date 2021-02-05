@@ -82,7 +82,8 @@ public class ChainedHashTable {
         return null;                            // return null if no match found
     }
 
-    public void remove(String key) {// get the index
+    public void remove(String key) {
+        // get the index
         int index = getIndex(key);
 
         // get current list of entries / find the bucket / head of linkedlist

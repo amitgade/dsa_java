@@ -47,11 +47,11 @@ public class BinarySearchTreeTest {
         bst.insert(6, "f");
         bst.insert(8, "g");
 
-        Assert.assertEquals("c", bst.min().value);
+        Assert.assertEquals("c", bst.findMin().value);
     }
 
     @Test
-    public void delete() {
+    public void deleteNoChild() {
 
     }
 }

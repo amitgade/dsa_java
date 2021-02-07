@@ -63,11 +63,26 @@ public class BinarySearchTree {
         return node;
     }
 
-    public Node min() {
+    public Node findMin() {
         return root.min();
     }
 
     public void delete(int key) {
+        root = deleteItem(root, key);
+    }
+
+    private Node deleteItem(Node node, int key) {
+        if (node == null) {
+            return null;
+        } else if (key < node.key) {
+            node.left = deleteItem(node.left, key);
+        } else if (key > node.key) {
+            node.right = deleteItem(node.right, key);
+        } else {
+            // we find the node to delete
+
+        }
+        return node;
 
     }
 

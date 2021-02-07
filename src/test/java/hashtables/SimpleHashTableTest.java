@@ -1,9 +1,7 @@
 package hashtables;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import pojos.Employee;
 
 import static org.junit.Assert.assertEquals;
 

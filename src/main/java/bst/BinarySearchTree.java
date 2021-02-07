@@ -63,4 +63,13 @@ public class BinarySearchTree {
         return node;
     }
 
+    public Node min() {
+        return root.min();
+    }
+
+    public void delete(int key) {
+
+    }
+
+
 }

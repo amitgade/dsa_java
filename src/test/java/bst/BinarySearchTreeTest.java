@@ -35,10 +35,14 @@ public class BinarySearchTreeTest {
         Assert.assertEquals("e", bst.find(7));
         Assert.assertEquals("f", bst.find(6));
         Assert.assertEquals("g", bst.find(8));
+
+//        bst.printInOrderTraversal();
+//        bst.printPreOrderTraversal();
+        bst.printPostOrderTraversal();
     }
 
     @Test
-    public void min() {
+    public void minKey() {
         bst.insert(5, "a");
         bst.insert(3, "b");
         bst.insert(2, "c");
@@ -51,7 +55,20 @@ public class BinarySearchTreeTest {
     }
 
     @Test
-    public void deleteNoChild() {
+    public void deleteNode() {
+        bst.insert(5, "a");
+        bst.insert(3, "b");
+        bst.insert(2, "c");
+        bst.insert(4, "d");
+        bst.insert(7, "e");
+        bst.insert(6, "f");
+        bst.insert(8, "g");
 
+        bst.delete(8);
+        Assert.assertNull(bst.find(8));
+        bst.delete(7);
+        Assert.assertNull(bst.find(7));
+        bst.delete(3);
+        Assert.assertNull(bst.find(3));
     }
 }

@@ -38,7 +38,7 @@ public class BinarySearchTreeTest {
 
 //        bst.printInOrderTraversal();
 //        bst.printPreOrderTraversal();
-        bst.printPostOrderTraversal();
+//        bst.printPostOrderTraversal();
     }
 
     @Test

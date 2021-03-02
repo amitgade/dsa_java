@@ -129,6 +129,7 @@ public class BinarySearchTree {
     public void printPostOrderTraversal() {
         postOrderTraversal(root);
     }
+
     private void postOrderTraversal(Node node) {
         if (node != null) {
             postOrderTraversal(node.left);

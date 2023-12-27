@@ -22,7 +22,7 @@ public class BinarySearchTree {
             }
         }
     }
-    
+
     Node root;
 
     public BinarySearchTree() {
